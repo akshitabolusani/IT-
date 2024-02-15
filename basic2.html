@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <script type="text/javascript">
+        function myfunc() {
+            var n = document.getElementById('doj').value
+            var today = new Date()
+            const d1 = new Date(n)
+            const diffTime = Math.abs(today - d1);
+            const diffDays = Math.abs(diffTime / (1000 * 60 * 60 * 24 * 30 * 12));
+            res = (diffDays>=5)?'Yes':'No'
+            document.getElementById("para1").innerHTML = res;
+        }
+    </script>
+    <label for="emplID">Choose Employee ID:</label>
+    <select name="emplID" id="empID">
+        <option value="none" selected disabled hidden>Select Employee ID</option>
+        <option value="empID-1">210905182</option>
+        <option value="empID-2">210905183</option>
+        <option value="empID-3">210903112</option>
+        <option value="empID-4">210905003</option>
+    </select><br>
+    Enter Date of Joining: <input type="date" id="doj"><br>
+    <button onclick="myfunc()">Am I eligible for promotion?</button><br\>
+        <p id="para1"></p>
+</body>
+</html>

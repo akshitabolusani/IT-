@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <style>
+        .img-slt {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+        }
+
+            .img-slt img {
+                height: 200px;
+                width: 200px;
+            }
+    </style>
+    <script type="text/javascript">
+        function myfunc() {
+            var bgimg = document.getElementById("imgslc").value
+            var bgclr = document.getElementById("bgclr").value;
+            var clr = document.getElementById("fntclr").value;
+            var fntsz = document.getElementById("font-sz").value;
+            console.log(bgclr, bgimg, clr, fntsz)
+            var txt = document.getElementById("para1").value
+            document.getElementById("res").outerHTML = `
+            <style>
+                .result{
+                    display:flex;
+                    justify-content:center;
+                    align-items:center;
+                    text-align:center;
+                    flex-direction:column;
+                    background:${bgclr};
+                    font-size:${fntsz};
+                    color:${clr};
+                }
+                .result img{
+                    height:100vh;
+                    width:80vw;
+                }
+                .result p{
+                    width:100vw;
+                }
+            </style>
+            <div class='result'>
+                <img src=${bgimg} alt="image">
+                <p>${txt}</p>
+            </div>`;
+        }
+    </script>
+    <div class="img-slt">
+        <img src="https://th.bing.com/th/id/OIP.0iqvqUM-_MntTZp4CMBaigHaEK?w=302&h=180&c=7&r=0&o=5&pid=1.7">
+        <p>Image 1</p>
+        <img src="https://th.bing.com/th/id/OIP.m4FmOjk0Bx-N4JaBzsBoTgHaEP?w=262&h=180&c=7&r=0&o=5&pid=1.7">
+        <p>Image 2</p>
+        <img src="https://images.pexels.com/photos/459225/pexels-photo-459225.jpeg?cs=srgb&dl=daylight-environment-forest-459225.jpg&fm=jpg">
+        <p>Image 3</p>
+        <img src="https://th.bing.com/th/id/OIP.oXTVeTL0KCqDbRq6e_hmWwHaEo?rs=1&pid=ImgDetMain">
+        <p>Image 4</p>
+    </div>
+    <label for="img-select">Choose Image:</label>
+    <select name="img-select" id="imgslc">
+        <option value="none" selected disabled hidden>Select Image</option>
+        <option value="https://th.bing.com/th/id/OIP.0iqvqUM-_MntTZp4CMBaigHaEK?w=302&h=180&c=7&r=0&o=5&pid=1.7">Image 1</option>
+        <option value="https://th.bing.com/th/id/OIP.m4FmOjk0Bx-N4JaBzsBoTgHaEP?w=262&h=180&c=7&r=0&o=5&pid=1.7">Image 2</option>
+        <option value="https://images.pexels.com/photos/459225/pexels-photo-459225.jpeg?cs=srgb&dl=daylight-environment-forest-459225.jpg&fm=jpg">Image 3</option>
+        <option value="https://th.bing.com/th/id/OIP.oXTVeTL0KCqDbRq6e_hmWwHaEo?rs=1&pid=ImgDetMain">Image 4</option>
+    </select><br>
+    <label for="bg-clr">Choose Background Color:</label>
+    <select name="bg-clr" id="bgclr">
+        <option value="none" selected disabled hidden>Select BG color</option>
+        <option value="red">Red</option>
+        <option value="green">Green</option>
+        <option value="blue">Blue</option>
+        <option value="white">White</option>
+    </select><br>
+    Enter Font Size: <input type="number" id="font-sz"><br>
+    <label for="fnt-clr">Choose Font Color:</label>
+    <select name="fnt-clr" id="fntclr">
+        <option value="none" selected disabled hidden>Select Font color</option>
+        <option value="red">Red</option>
+        <option value="green">Green</option>
+        <option value="blue">Blue</option>
+        <option value="white">White</option>
+    </select><br>
+    Enter Para: <input type="text" id="para1"><br>
+    <button onclick="myfunc()">Generate</button><br\>
+        <div id="res"></div>
+</body>
+</html>

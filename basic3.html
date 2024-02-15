@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <script type="text/javascript">
+        function myfunc() {
+            var n1 = document.getElementById("num1").value;
+            var n2 = document.getElementById("num2").value;
+            var opr = document.getElementById("opr").value;
+            if (opr == 'add')
+                var res = parseInt(n1) + parseInt(n2)
+            else if (opr == 'sub')
+                var res = parseInt(n1) - parseInt(n2)
+            else if (opr == 'mul')
+                var res = parseInt(n1) * parseInt(n2)
+            else if (opr == 'divd')
+                var res = parseInt(n1) / parseInt(n2)
+            else if (opr == 'pow') {
+                var res = 1;
+                for (let i = 0; i < n2; i++) {
+                    res *= n1;
+                }
+            }
+            else
+                var res='Invalid Operator'
+            document.getElementById("para1").innerHTML = "The Result is: " + res;
+        }
+    </script>
+    Enter First Number: <input type="number" id="num1"><br>
+    Enter Second Number: <input type="number" id="num2"><br>
+    <label for="operation">Choose Operation:</label>
+    <select name="operation" id="opr">
+        <option value="none" selected disabled hidden>Select Operation</option>
+        <option value="add">Addition(+)</option>
+        <option value="sub">Subtraction(-)</option>
+        <option value="mul">Multiplication(x)</option>
+        <option value="divd">Division(/)</option>
+        <option value="pow">Power(x^y)</option>
+    </select><br>
+    <button onclick="myfunc()">Calculate</button><br\>
+        <p id="para1"></p>
+</body>
+</html>
